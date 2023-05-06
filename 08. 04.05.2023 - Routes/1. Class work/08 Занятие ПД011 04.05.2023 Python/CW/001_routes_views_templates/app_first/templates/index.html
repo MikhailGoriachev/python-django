@@ -1,0 +1,47 @@
+{# это строчный комментарий' #}
+{# шаблон страницы загружаем филоьтром extends #}
+{% extends '_base.html' %}
+
+{#  для работы со стотическими файлами  #}
+{% load static %}
+
+{# блок со значением, передаваемым в шаблон страницы #}
+{% block title %}главная{% endblock %}
+
+{# блок со значением, передаваемым в шаблон страницы #}
+{% block content %}
+    <h1>Index</h1>
+    <h2>Приложение <u>app_first</u></h2>
+
+    <h3>Использование фильтра <u>extends</u></h3>
+    <div>
+        <img src="{% static 'images/mars_landscape_nasa.jpg' %}" height="320" alt="Марс с орбиты. NASA, 2010">
+    </div>
+
+    <h3>Использование фильтра для вывода вещественных чисел</h3>
+    {% comment %}
+    При выводе применяется текущая локаль проекта. В файле settings.py ее задает
+    переменную LANGUAGE_CODE, например, LANGUAGE_CODE = 'en-us' или
+    LANGUAGE_CODE = 'ru-ru'
+    {% endcomment %}
+    {% with value=54321234.645 %}
+        <ul>
+            <li>Формат по умолчанию: {{ value|floatformat }}</li>
+            <li>Формат с округлением при выводе до целого: {{ value|floatformat:"0" }}</li>
+            <li>Формат с точностью 5 знаков: {{ value|floatformat:"5" }}</li>
+            <li>Формат с точностью не более 5 знаков: {{ value|floatformat:"-5" }}</li>
+            <li>Формат с группировкой: {{ value|floatformat:"g" }}</li>
+            <li>Формат с группировкой и округлением при выводе до целого: {{ value|floatformat:"0g" }}</li>
+            <li>Формат с группировкой с точностью 5 знаков: {{ value|floatformat:"5g" }}</li>
+            <li>Формат с группировкой и точностью не более 5 знаков: {{ value|floatformat:"-5g" }}</li>
+        </ul>
+    {%  endwith %}
+
+    <h3>Использование фильтра для вывода дат</h3>
+    <ul>
+        <li>Дата в формате дд.мм.гггг - {{ date_now|date:"d.m.Y" }}</li>
+        <li>Время в формате ЧЧ:ММ - {{ date_now|date:"H:i" }}</li>
+        <li>Компактный формат даты и времени: {{ date_now|date:"c" }}</li>
+        <li>Краткий формат даты, вид задается локалью: {{ date_now|date:"SHORT_DATE_FORMAT" }}</li>
+    </ul>
+{% endblock %}

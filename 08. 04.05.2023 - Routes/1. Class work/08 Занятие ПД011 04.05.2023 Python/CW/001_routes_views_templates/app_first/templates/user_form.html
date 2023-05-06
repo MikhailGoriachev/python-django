@@ -1,0 +1,38 @@
+{%  extends '_base.html' %}
+{%  block title %}форма ввода{% endblock %}
+
+{# разметка формы #}
+{% block content %}
+    <h2>Пример формы ввода</h2>
+
+    <form action="/post_user_form/"   method="post">
+        {% csrf_token %}
+        <p><label>Фамилия И.О.:</label> <input type="text" name="fullName"/></p>
+        <p><label>Вес, кг:</label> <input type="number" name="weigth"/></p>
+        <p><label>Рост, см:</label> <input type="number" name="height"/></p>
+
+        {# пример радиокнопок  #}
+        <p>
+            Предпочитаемый вид транспорта:<br>
+            <label><input type="radio" name="transport" value="communal">Общественный</label>
+            <label><input type="radio" name="transport" value="taxi">Такси</label>
+            <label><input type="radio" name="transport" value="car">Автомобиль</label><br>
+            <label><input type="radio" name="transport" value="motorcycle">Мотоцикл</label>
+            <label><input type="radio" name="transport" value="bicycle">Велосипед</label><br>
+        </p>
+
+        {# Пример использования чек-боксов #}
+        <p>
+            Дополнительно, увлечения:<br>
+            <label><input type="checkbox" name="library">Библиотека</label>
+            <label><input type="checkbox" name="gym">Тренажерка</label>
+            <label><input type="checkbox" name="swim_pool">Бассейн</label>
+        </p>
+
+        <p>
+            <input type="submit" value="Отправить">
+            <input type="reset" value="Сброс">
+        </p>
+    </form>
+
+{% endblock %}

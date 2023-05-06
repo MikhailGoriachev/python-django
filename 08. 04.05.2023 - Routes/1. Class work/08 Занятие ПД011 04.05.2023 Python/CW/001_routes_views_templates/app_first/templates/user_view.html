@@ -1,0 +1,15 @@
+{%  extends '_base.html' %}
+{%  block title %}пользователь{% endblock %}
+
+{% block content %}
+    <h2>Параметры, полученные из формы ввода</h2>
+    <ul>
+        <li>Фамилия И.О. пользователя: <u>{{ user.full_name }}</u></li>
+        <li>Вес пользователя, кг: <u>{{ user.weight }}</u></li>
+        <li>Рост пользователя, см:<u>{{ user.height }}</u></li>
+        <li>Предпочитаемый вид транспорта:<u>{{ user.transport }}</u></li>
+        <li>Абонент библиотеки:<u>{% if user.library %} да {% else %} нет {%  endif %}</u></li>
+        <li>Абонент тренажерного зала:<u>{% if user.gym %} да {% else %} нет {%  endif %}</u></li>
+        <li>Абонент плавательного бассейна:<u>{% if user.swim_pool %} да {% else %} нет {%  endif %}</u></li>
+    </ul>
+{% endblock %}

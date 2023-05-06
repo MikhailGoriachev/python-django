@@ -1,0 +1,15 @@
+{%  extends '_base.html' %}
+{%  load static %}
+
+{% block title %}Параметры, из строки запроса{%  endblock %}
+
+{% block content %}
+    <h2>Параметры, полученные из строки запроса</h2>
+    <ul>
+        <li><b>Идентификатор:</b> {{ product.id }}</li>
+        <li><b>Наименование:</b> {{ product.name }}</li>
+        <li><b>Цена ед. товара:</b> {{ product.price }}</li>
+        <li><b>Количество ед. товара:</b> {{ product.amount }}</li>
+    </ul>
+
+{% endblock %}

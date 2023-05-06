@@ -1,0 +1,26 @@
+﻿{% load static %}
+{% include '_header.html' with delete_last_active='active' title='Удаление' %}
+
+<!-- Контент -->
+<div class="min-vh-100">
+    <section class="w-50 mx-auto my-4 bg-light shadow-sm border rounded-3 p-3">
+        <h4 class="text-center mb-3">Удаление последнего вхождения подстроки</h4>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-10rem">Исходная строка</li>
+            <li class="list-group-item"><b>{{ string1 }}</b></li>
+        </ul>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-10rem">Подстрока</li>
+            <li class="list-group-item"><b>{{ string2 }}</b></li>
+        </ul>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-10rem">Результат</li>
+            <li class="list-group-item"><b>{{ result }}</b></li>
+        </ul>
+    </section>
+</div>
+
+{% include '_footer.html' %}

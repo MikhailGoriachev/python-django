@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{%  load static  %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Занятие 02.05.2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+    <h1>Conditional</h1>
+    <h2>Приложение <u>routes</u></h2>
+
+    <h2>Передача параметров в шаблон</h2>
+    <ul>
+        <li><b>n:</b> {{ n }}</li>
+    </ul>
+
+
+    <h2>Теги условного форматирвоания</h2>
+    {% if n > 0 %}
+        <p>Число {{ n }} положительное </p>
+    {% endif %}
+
+    {% if n > 0 %}
+        <p>Число {{ n }} положительное </p>
+    {%  else %}
+        <p>Число {{ n }} отрицательное </p>
+    {% endif %}
+
+    {% if n > 0 %}
+        <p>Число {{ n }} положительное, не нулевое </p>
+    {% elif n == 0 %}
+        <p>Число {{ n }} равно нулю </p>
+    {% else %}
+        <p>Число {{ n }} отрицательное </p>
+    {% endif %}
+
+    {% comment %}
+    Текст комментария
+    {% endcomment %}
+
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+</body>
+</html>

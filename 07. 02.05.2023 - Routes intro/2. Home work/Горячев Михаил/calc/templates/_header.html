@@ -1,0 +1,126 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- #region Стили -->
+    {# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">#}
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- #endregion -->
+
+    <!-- #region Скрипты -->
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- #endregion -->
+
+    <!-- заголовок -->
+    <title>{{ title }}</title>
+
+    <!-- логотип -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+
+</head>
+
+</html>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top shadow">
+    <div class="container-fluid justify-content-center">
+
+        <!-- Логотип -->
+        <a class="navbar-brand mx-2" href="/">
+            <img class="logo" src="{% static 'images/logo.png' %}" alt="logo">
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+
+                <!-- Главная -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ index_active }}' href="/">
+                        Главная
+                    </a>
+                </li>
+
+                <!-- Сортировка -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ sort_active }}" href="#"
+                       id="navbarDataId" role="button" data-bs-toggle="dropdown" aria-expanded="False">
+                        Сортировка
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDataId">
+
+                        <!-- По возрастанию -->
+                        <li class="nav-item">
+                            <a class='nav-link mx-3' href="/sort/ascend/10/7/42">
+                                По&nbsp;возрастанию
+                            </a>
+                        </li>
+
+                        <!-- По убыванию -->
+                        <li class="nav-item">
+                            <a class='nav-link mx-3' href="/sort/descend/10/7/42">
+                                По&nbsp;убыванию
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Наибольший делитель -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ nod_active }}' href="/nod/12/10">
+                        Наибольший делитель
+                    </a>
+                </li>
+
+                <!-- Вставка -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ insert_last_active }}'
+                       href="/insertlast/арбуз арбуз арбуз дыня дыня арбуз дыня/арбуз/**ананас**">
+                        Вставка
+                    </a>
+                </li>
+
+                <!-- Замена -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ replace_first_active }}'
+                       href="/replacefirst/арбуз арбуз арбуз дыня дыня арбуз дыня/арбуз/**ананас**">
+                        Замена
+                    </a>
+                </li>
+
+                <!-- Удаление -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ delete_last_active }}'
+                       href="/delete-last/арбуз арбуз арбуз дыня дыня арбуз дыня/арбуз">
+                        Удаление
+                    </a>
+                </li>
+
+                <!-- Работник -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ employee_active }}'
+                       href="/employee/1/Фёдоров Евгений Васильевич/48000">
+                        Работник
+                    </a>
+                </li>
+
+                <!-- Товар -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ product_active }}'
+                       href="/product/1/iPhone 14 Pro Max/3/125000">
+                        Товар
+                    </a>
+                </li>
+
+                <!-- О разработчике -->
+                <li class="nav-item">
+                    <a class='nav-link mx-3 {{ about_active }}' href="/about/">
+                        О разработчике
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

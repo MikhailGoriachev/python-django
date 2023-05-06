@@ -1,0 +1,123 @@
+проект Django
+https://www.djangoproject.com/
+
+документация, учебники
+https://django.fun/
+
+создание проекта и приложения Django в консоли2311174\\\\\\\\\\\\\\
+
+
+создать папку, например django_curses
+перейтии в папку django_curses
+
+установить виртуальное окружение
+python -m venv venv
+
+актививровать виртуальное окружение
+venv\Scripts\activate.bat
+python -m pip install django
+
+создать проект Django с именем, например hello_project
+django-admin startproject hello_project
+
+проверка успешности установки:
+для вывода списка установленных в виртуальное окружение пакетов
+pip list   
+
+python
+import django
+print(django.get_version())
+exit()
+
+
+перейти в папку проекта
+cd hello_project
+
+запуск сервера разработки
+python manage.py runserver 127.0.0.1:8085
+python manage.py runserver localhost:8085
+ 
+для проверки работы сервера в браузере набрать
+http://127.0.0.1:8085
+http://localhost:8085
+ 
+ 
+создать приложение в проекте, имя приложения, например, first
+python manage.py startapp first
+  
+зарегистрировать приложение first в имя_проекта/settings.py
+                                    hello_project/settings.py
+INSTALLED_APPS = [
+    ...,
+	
+    'first',
+]
+
+в папке приложения (в данном случае first)
+отредактировать views.py
+-------------------------------------------------------
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+# маршрут localhost:p/
+def hello(request):
+    return HttpResponse('<h1>Привет, мир Django</h1><h2>Первое приложение</h2>')
+
+
+# маршрут localhost:p/index
+def index(request):
+    return render(request, 'index.html')
+
+
+# маршрут localhost:p/about
+def about(request):
+    return render(request, 'about.html')
+-------------------------------------------------------
+
+
+в папке проекта отредактировать urls.py
+в данном случае hello_project\urls.py
+--------------------------------------------------------
+from first.views import hello, index, about
+
+urlpatterns = [
+    path('', hello),
+    path('index/', index),
+    path('about/', about),
+]
+--------------------------------------------------------
+
+
+html-файлы можно разместить в папке templates приложения
+------------------------------------------------------------
+ссылки на страницы - маршруты проекта, пока простейший вариант
+	<a href="/index/">Index</a> 
+	<a href="/about/">About</a>
+
+------------------------------------------------------------
+css-файлы - это статические файлы проекта, о них
+добавлении в следующих занятиях
+
+
+------------------------------------------------------------
+второе и последующее приложения добавляются аналогично,
+в urls.py все функции-действия должны быть уникальными,
+как правильнее строить маршруты поговорим в следующих занятиях
+
+-------------------------------------------------------------
+Для работы с проектом в PyCharm (не создания, а только лишь работы)
+актививровать venv и открыть папку проекта как проект PyCharm
+в данном случае это hello_project
+--------------------------------------------------------------
+--------------------------------------------------------------
+
+По окончании работы с проектом не забывваем деактививровать venv
+venv\Scripts\deactivate.bat
+
+При отправке ДЗ из архива удалите папку venv
+ее легко можно восстановить таким скриптом
+
+python -m venv venv
+venv\Scripts\activate.bat
+python -m pip install django

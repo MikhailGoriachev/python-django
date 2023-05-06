@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{%  load static  %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Занятие 02.05.2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+    <h1>Page1</h1>
+    <h2>Приложение <u>routes</u></h2>
+
+    <h2>Передача простых данных в шаблон</h2>
+    <ul>
+        <li><b>color:</b> {{ color }}</li>
+        <li><b>number:</b> {{ number }}</li>
+        <li><b>state:</b> {{ state }}</li>
+    </ul>
+
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+</body>
+</html>

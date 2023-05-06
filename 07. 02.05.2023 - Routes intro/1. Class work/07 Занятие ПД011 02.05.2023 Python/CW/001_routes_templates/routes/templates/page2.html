@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%  load static  %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Занятие 02.05.2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+
+    <h1>Page2</h1>
+    <h2>Приложение <u>routes</u></h2>
+
+    <h2>Передача параметров в маршруте</h2>
+    <ul>
+        <li><b>color:</b> {{ color }}</li>
+    </ul>
+
+    <h2>Демонстрация передачи параметров в маршруте</h2>
+    <ul>
+        <li><a href="/param1/42/">Передача числа</a></li>
+        <li><a href="/param2/Максим/762/">Передача строки и числа</a></li>
+        <li><a href="/param3/Maxim-23-Ivanov/">Передача slug-строки</a></li>
+        <li><a href="/param4/Maxim/23/Ivanov/Olga/Korban">Передача path-строки, строка со /</a></li>
+    </ul>
+
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+</body>
+</html>

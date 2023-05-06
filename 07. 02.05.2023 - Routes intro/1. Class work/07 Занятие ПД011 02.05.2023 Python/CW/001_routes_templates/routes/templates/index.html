@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{%  load static  %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Занятие 02.05.2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+    <h1>Index</h1>
+    <h2>Приложение <u>routes</u></h2>
+
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+
+</body>
+</html>

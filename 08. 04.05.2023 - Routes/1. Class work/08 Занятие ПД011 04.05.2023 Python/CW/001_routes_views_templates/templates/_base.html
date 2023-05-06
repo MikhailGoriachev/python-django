@@ -1,0 +1,30 @@
+{#  базовый шаблон разметки для всех страниц проекта #}
+{#  для использования шаблона страницы применяют фильтр extends #}
+<!DOCTYPE html>
+
+{# для работы со static-файлами (css, js, images, ...)  #}
+{%  load static  %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    {# задать блок со значением по умолчанию, формат тега block имяБлока  #}
+    <title>Занятие 04.05.2023 - {% block title %}значение по умолчанию{% endblock %}</title>
+
+    {#  подключение favicon.ico  #}
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+    {#  блок контента страницы block имяБлока #}
+    {% block content %}
+
+    {%  endblock %}
+
+    {#  подвалу страницы передаем парамтеры group, year  #}
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+</body>
+</html>

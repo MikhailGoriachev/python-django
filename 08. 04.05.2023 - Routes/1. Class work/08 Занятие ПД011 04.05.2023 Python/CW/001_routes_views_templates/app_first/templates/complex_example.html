@@ -1,0 +1,37 @@
+{%  extends '_base.html' %}
+{%  load static %}
+
+{% block title %}комплексный пример{%  endblock %}
+
+{% block content %}
+    <h1>Комплексный пример, static-файлы и теги разметки</h1>
+    <h2>Приложение <u>app_first</u></h2>
+    
+    <div>
+        <img src="{% static 'images/falcon_1.jpg' %}" height=320 alt="Фалькон 1">
+        <img src="{% static 'images/falcon_9.jpg' %}" height=320 alt="Фалькон 9">
+        <img src="{% static 'images/falcon_heavy.jpg' %}" height=320 alt="Фалькон Хэви">
+    </div>
+
+    <h2>Переданное из представления число</h2>
+    <ul>
+        <li>Число: {{ number }}</li>
+        <li>Это: <u>
+            {% if number > 0 %}
+                положительное ненулевое
+            {% elif number == 0 %}
+                равное нулю
+            {% else %}
+                отрицательное
+            {%  endif %}
+            </u> число
+        </li>
+    </ul>
+    
+    <h2>Переданная из представления коллекция</h2>
+    <ul>
+        {% for datum in data %}
+            <li>{{  datum }}</li>
+        {% endfor %}
+    </ul>
+{%  endblock %}

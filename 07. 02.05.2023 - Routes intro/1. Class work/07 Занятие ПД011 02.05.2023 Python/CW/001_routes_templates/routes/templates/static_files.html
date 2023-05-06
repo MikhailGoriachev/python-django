@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{%  load static  %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Занятие 02.05.2023</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include '_nav.html' %}
+
+    <h1>Static-файлы</h1>
+    <h2>Приложение <u>routes</u></h2>
+    
+    <div>
+        <img src="{% static 'images/cat001.jpg' %}" alt="">
+    </div>
+
+    <h2>Переданное из представления число</h2>
+    <ul>
+        <li>Число: {{ n }}</li>
+    </ul>
+    
+    <h2>Переданная из представления коллекция</h2>
+    <ul>
+        {% for lang in data %}
+            <li>{{  lang }}</li>
+        {% endfor %}
+    </ul>
+
+    {%  include '_footer.html' with group='ПД011' year=2023 %}
+</body>
+</html>

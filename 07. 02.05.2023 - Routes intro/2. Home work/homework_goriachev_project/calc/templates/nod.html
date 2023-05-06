@@ -1,0 +1,26 @@
+﻿{% load static %}
+{% include '_header.html' with nod_active='active' title='Наибольший делитель' %}
+
+<!-- Контент -->
+<div class="min-vh-100">
+    <section class="w-50 mx-auto my-4 bg-light shadow-sm border rounded-3 p-3">
+        <h4 class="text-center mb-3">Наибольший делитель</h4>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-15rem">Число a</li>
+            <li class="list-group-item w-5rem"><b>{{ number1 }}</b></li>
+        </ul>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-15rem">Число b</li>
+            <li class="list-group-item w-5rem"><b>{{ number2 }}</b></li>
+        </ul>
+
+        <ul class="list-group list-group-horizontal mt-2">
+            <li class="list-group-item w-15rem">Наибольший делитель</li>
+            <li class="list-group-item w-5rem"><b>{{ gcd }}</b></li>
+        </ul>
+    </section>
+</div>
+
+{% include '_footer.html' %}
